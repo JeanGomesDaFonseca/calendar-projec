@@ -1,25 +1,26 @@
-import logo from './logo.svg';
+import {useState} from 'react';
+import Calendar from 'react-calendar'; 
+import BarraLoading from './BarraLoading/BarraLoading.jsx';
+
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+ const [date, setDate] = useState(new Date())
+
+return (
+<div>
+ <div className="app">
+   <div className="calendar-container">
+     <Calendar onChange={setDate} value={date}/>
+   </div>
+ </div>
+
+<div>
+  <BarraLoading/>
+</div>
+
+</div>
+  )
 }
 
 export default App;
